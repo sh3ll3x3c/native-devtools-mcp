@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.10.1
+
+### Security
+
+- **rustls-webpki 0.103.12 → 0.103.13** — fixes a denial of service via panic on a malformed CRL `BIT STRING` (GHSA-82j2-j2ch-gfr8, high). Reached at runtime through `rustls` (TLS used by `ureq` and `adb_client`).
+- **rmcp 0.2.1 → 1.7.0** — clears the Streamable HTTP server transport DNS-rebinding advisory (GHSA-89vp-x53w-74fx, high) and moves onto the supported 1.x line. This server uses only the stdio transport, so the vulnerable path was never reachable, but the upgrade resolves the alert. Internal API migration only — the tool surface is unchanged (same 48 tools, same protocol version).
+- **rand 0.8.5 → 0.8.6** — resolves an unsoundness when using a custom logger with `rand::rng()` (GHSA-cq8v-f236-94qc, low).
+
 ## v0.9.3
 
 ### CDP

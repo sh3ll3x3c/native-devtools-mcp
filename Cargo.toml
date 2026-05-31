@@ -1,6 +1,6 @@
 [package]
 name = "native-devtools-mcp"
-version = "0.10.0"
+version = "0.10.1"
 edition = "2021"
 license = "MIT"
 description = "MCP server for native app testing — screenshot, OCR, click, type, find_text, template matching. macOS, Windows & Android."
