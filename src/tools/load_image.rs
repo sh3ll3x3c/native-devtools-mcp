@@ -443,7 +443,9 @@ mod tests {
 
         // Parse the response to get image_id
         let content = &result.content[0];
-        if let rmcp::model::RawContent::Text(rmcp::model::RawTextContent { text }) = &content.raw {
+        if let rmcp::model::RawContent::Text(rmcp::model::RawTextContent { text, .. }) =
+            &content.raw
+        {
             let response: LoadImageResponse = serde_json::from_str(text).unwrap();
             assert!(response.image_id.starts_with("template-"));
 

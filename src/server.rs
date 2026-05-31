@@ -8,9 +8,8 @@ use rmcp::model::Content;
 use rmcp::{
     handler::server::ServerHandler,
     model::{
-        CallToolRequestParam, CallToolResult, Implementation, ListToolsResult,
-        PaginatedRequestParam, ProtocolVersion, ServerCapabilities, ServerInfo, Tool,
-        ToolAnnotations,
+        CallToolRequestParam, CallToolResult, ListToolsResult, PaginatedRequestParam,
+        ProtocolVersion, ServerCapabilities, ServerInfo, Tool, ToolAnnotations,
     },
     service::{RequestContext, RoleServer},
     Error as McpError,
@@ -1960,18 +1959,19 @@ impl ServerHandler for MacOSDevToolsServer {
              Use android_press_key with Android keycodes (e.g., 'KEYCODE_BACK', 'KEYCODE_HOME').",
         );
 
-        ServerInfo {
-            protocol_version: ProtocolVersion::V_2024_11_05,
-            capabilities: ServerCapabilities::builder()
-                .enable_tools()
-                .enable_tool_list_changed()
-                .build(),
-            server_info: Implementation {
-                name: "native-devtools-mcp".to_string(),
-                version: env!("CARGO_PKG_VERSION").to_string(),
-            },
-            instructions: Some(instructions),
-        }
+        // `ServerInfo` and `Implementation` are `#[non_exhaustive]` in rmcp 1.x,
+        // so they can't be built with struct literals from outside the crate.
+        // Start from the defaults and override the fields we care about.
+        let mut info = ServerInfo::default();
+        info.protocol_version = ProtocolVersion::V_2024_11_05;
+        info.capabilities = ServerCapabilities::builder()
+            .enable_tools()
+            .enable_tool_list_changed()
+            .build();
+        info.server_info.name = "native-devtools-mcp".to_string();
+        info.server_info.version = env!("CARGO_PKG_VERSION").to_string();
+        info.instructions = Some(instructions);
+        info
     }
 
     async fn list_tools(
@@ -1993,6 +1993,7 @@ impl ServerHandler for MacOSDevToolsServer {
                 self.is_recording().await,
             ),
             next_cursor: None,
+            ..Default::default()
         })
     }
 
