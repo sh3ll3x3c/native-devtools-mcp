@@ -7,6 +7,9 @@ description = "MCP server for computer use & browser automation — screenshot, 
 repository = "https://github.com/sh3ll3x3c/native-devtools-mcp"
 keywords = ["mcp", "computer-use", "ui-automation", "android", "screenshot"]
 categories = ["development-tools::testing", "accessibility"]
+# README demo GIFs (~11 MiB) are repo-only assets; excluding them keeps the
+# published crate under crates.io's 10 MiB package-size limit.
+exclude = ["*.gif"]
 
 [features]
 default = ["find_image_fast", "cdp"]
