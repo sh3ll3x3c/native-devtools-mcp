@@ -2,11 +2,12 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.sh3ll3x3c/native-devtools",
   "title": "Native DevTools",
-  "description": "MCP server for desktop, browser (CDP), and Android automation. Screenshot, OCR, click, type.",
+  "description": "MCP server for computer use & browser automation on macOS, Windows & Android — screenshot, OCR, click, type, find_text, Chrome/Electron CDP, template matching.",
   "repository": {
     "url": "https://github.com/sh3ll3x3c/native-devtools-mcp",
     "source": "github"
   },
+  "websiteUrl": "https://github.com/sh3ll3x3c/native-devtools-mcp",
   "version": "0.10.0",
   "packages": [
     {

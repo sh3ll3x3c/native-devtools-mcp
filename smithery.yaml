@@ -1,0 +1,14 @@
+# Smithery configuration — https://smithery.ai/docs/build/project-config
+#
+# native-devtools-mcp is a LOCAL server: it automates the user's own desktop
+# (macOS/Windows) and Android devices, so it needs a real display plus
+# Accessibility / Screen Recording permissions on the host. It is not a
+# cloud-deployable server — Smithery lists it as a local stdio install.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+    additionalProperties: false
+  commandFunction: |-
+    (config) => ({ command: 'npx', args: ['-y', 'native-devtools-mcp'] })

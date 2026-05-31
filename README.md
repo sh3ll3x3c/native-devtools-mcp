@@ -7,6 +7,13 @@
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-blue?style=flat-square)
 ![Downloads](https://img.shields.io/npm/dt/native-devtools-mcp?style=flat-square)
 
+**Add to your client in one click:**
+
+[![Add to Cursor](https://img.shields.io/badge/Add%20to-Cursor-000000?style=flat-square)](cursor://anysphere.cursor-deeplink/mcp/install?name=native-devtools&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJuYXRpdmUtZGV2dG9vbHMtbWNwIl19)
+[![Install in VS Code](https://img.shields.io/badge/Install%20in-VS%20Code-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=native-devtools&config=%7B%22name%22%3A%20%22native-devtools%22%2C%20%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22native-devtools-mcp%22%5D%7D)
+
+**Claude Code:** `claude mcp add native-devtools -- npx -y native-devtools-mcp`
+
 `native-devtools-mcp` gives AI agents and MCP clients direct control over native desktop apps, Chrome/Electron browsers, and Android devices — screenshots, OCR, accessibility-first element lookup, input simulation, window management, Chrome DevTools Protocol (CDP), and ADB — all in one local server. Works with [Claude Desktop](https://claude.ai/download), [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Cursor](https://cursor.com), and other MCP-compatible clients.
 
 ## Quickstart
